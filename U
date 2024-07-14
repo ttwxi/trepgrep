@@ -1,0 +1,39 @@
+ Function to perform the chosen arithmetic operation
+def perform_operation(choice, num1, num2):
+    if choice == 1:
+        return num1 + num2
+    elif choice == 2:
+        return num1 - num2
+    elif choice == 3:
+        return num1 * num2
+    elif choice == 4:
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return "Error! Division by zero."
+    else:
+        return "Invalid choice"
+
+# Main program
+def main():
+    try:
+        # Reading numbers from the keyboard
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+
+        # Displaying the menu and reading the user's choice
+        print("Choose the operation:")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        choice = int(input("Enter your choice (1/2/3/4): "))
+
+        # Performing the operation and displaying the result
+        result = perform_operation(choice, num1, num2)
+        print(f"The result is: {result}")
+    except ValueError:
+        print("Invalid input! Please enter numeric values.")
+
+if __name__ == "__main__":
+    main()
