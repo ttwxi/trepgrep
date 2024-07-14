@@ -198,4 +198,106 @@ filtered_odd_numbers = filter_odd_numbers(random_numbers)
 print("\nFiltered Odd Numbers of Length 2 and 4:")
 print(filtered_odd_numbers)
 
+..
+def create_text_file(filename):
+    with open(filename, 'w') as file:
+        print("Enter 5-6 lines of text (press Enter after each line):")
+        for _ in range(5):
+            line = input()
+            file.write(line + '\n')
+
+def count_upper_lower_digits(filename):
+    upper_count = 0
+    lower_count = 0
+    digit_count = 0
+
+    with open(filename, 'r') as file:
+        content = file.read()
+        for char in content:
+            if char.isupper():
+                upper_count += 1
+            elif char.islower():
+                lower_count += 1
+            elif char.isdigit():
+                digit_count += 1
+
+    return upper_count, lower_count, digit_count
+
+# Main program
+if __name__ == "__main__":
+    filename = "text_file.txt"
+
+    # Create the text file and input lines
+    create_text_file(filename)
+    print("\nText file created and lines added successfully.")
+
+    # Count upper, lower, and digit characters
+    upper_count, lower_count, digit_count = count_upper_lower_digits(filename)
+
+    # Display details
+    print("\nDetails of the file:")
+    print(f"Number of uppercase letters: {upper_count}")
+    print(f"Number of lowercase letters: {lower_count}")
+    print(f"Number of digits: {digit_count}")
+//9
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataset
+def load_dataset(filename):
+    return pd.read_csv(filename)
+
+# Visualize the dataset using plot()
+def visualize_dataset(df):
+    df.plot()
+    plt.title("Dataset Visualization")
+    plt.xlabel("Index")
+    plt.ylabel("Values")
+    plt.show()
+
+# Draw scatter plot for the dataset on any column
+def draw_scatter_plot(df, x_col, y_col):
+    plt.scatter(df[x_col], df[y_col])
+    plt.title(f"Scatter Plot: {x_col} vs {y_col}")
+    plt.xlabel(x_col)
+    plt.ylabel(y_col)
+    plt.show()
+
+# Display scatter plot with different colors
+def scatter_plot_with_colors(df, x_col, y_col, color_col):
+    colors = df[color_col]
+    plt.scatter(df[x_col], df[y_col], c=colors, cmap='viridis')
+    plt.title(f"Scatter Plot with Colors: {x_col} vs {y_col}")
+    plt.xlabel(x_col)
+    plt.ylabel(y_col)
+    plt.colorbar(label=color_col)
+    plt.show()
+
+# Draw histogram for the dataset on any column
+def draw_histogram(df, col):
+    df[col].plot(kind='hist', bins=20, edgecolor='black')
+    plt.title(f"Histogram of {col}")
+    plt.xlabel(col)
+    plt.ylabel("Frequency")
+    plt.show()
+
+# Main program
+if __name__ == "__main__":
+    # Replace 'your_dataset.csv' with your actual dataset file
+    filename = 'your_dataset.csv'
+    df = load_dataset(filename)
+    
+    # Visualize the dataset
+    visualize_dataset(df)
+
+    # Draw scatter plot for specified columns
+    draw_scatter_plot(df, 'column1', 'column2')
+
+    # Display scatter plot with different colors based on another column
+    scatter_plot_with_colors(df, 'column1', 'column2', 'color_column')
+
+    # Draw histogram for a specified column
+    draw_histogram(df, 'column1')
+
+
 
