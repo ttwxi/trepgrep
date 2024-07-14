@@ -18,3 +18,48 @@ key = 11
 result = binary_search(sorted_array, key)
 print(result)
 
+..
+
+class SavingsAccount:
+    def __init__(self, account_number, account_holder, initial_balance=0):
+        self.account_number = account_number
+        self.account_holder = account_holder
+        self.balance = initial_balance
+
+    def deposit(self, amount):
+        if amount <= 0:
+            raise ValueError("Deposit amount should be greater than zero.")
+        self.balance += amount
+        print(f"Deposit of {amount} successful. New balance: {self.balance}")
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            raise ValueError("Withdrawal amount should be greater than zero.")
+        if amount > self.balance:
+            raise ValueError("Insufficient balance. Withdrawal amount exceeds available balance.")
+        self.balance -= amount
+        print(f"Withdrawal of {amount} successful. New balance: {self.balance}")
+
+    def check_balance(self):
+        print(f"Current balance in account {self.account_number}: {self.balance}")
+
+# Example usage:
+try:
+    # Create a savings account
+    account1 = SavingsAccount("123456789", "John Doe", 1000)
+
+    # Deposit some money
+    account1.deposit(500)
+
+    # Withdraw some money
+    account1.withdraw(300)
+
+    # Check balance
+    account1.check_balance()
+
+    # Attempt to withdraw more than available balance
+    account1.withdraw(2000)
+
+except ValueError as e:
+    print(f"Error: {e}")
+
