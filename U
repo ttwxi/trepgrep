@@ -56,3 +56,28 @@ if __name__ == "__main__":
 
 if __name__ == "__main__":
     main()
+
+//2
+
+def is_prime(n):
+    """Check if a number is prime."""
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def main():
+    # Reading the range from the user
+    start = int(input("Enter the start of the range: "))
+    end = int(input("Enter the end of the range: "))
+
+    # Displaying the prime numbers in the given range
+    print(f"Prime numbers between {start} and {end}:")
+    for num in range(start, end + 1):
+        if is_prime(num):
+            print(num, end=' ')
+
+if __name__ == "__main__":
+    main()
