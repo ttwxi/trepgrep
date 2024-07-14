@@ -81,3 +81,65 @@ def main():
 
 if __name__ == "__main__":
     main()
+..
+
+def main():
+    # List of subject names for the 4th semester
+    subjects = [
+        "Mathematics IV",
+        "Data Structures",
+        "Computer Organization",
+        "Operating Systems",
+        "Database Management Systems",
+        "Software Engineering",
+        "Python Programming Lab",
+        "Database Lab"
+    ]
+
+    # Display the list using a for loop
+    print("Subjects in the 4th semester:")
+    for subject in subjects:
+        print(subject)
+    
+    # Display the 2nd and 5th element of the list
+    print("\n2nd and 5th subjects in the list:")
+    print(f"2nd: {subjects[1]}")
+    print(f"5th: {subjects[4]}")
+    
+    # Display first 4 elements of the list using the range of indexes
+    print("\nFirst 4 subjects in the list:")
+    print(subjects[:4])
+    
+    # Display last 4 elements of the list using the range of negative indexes
+    print("\nLast 4 subjects in the list:")
+    print(subjects[-4:])
+    
+    # Check if "Python Programming Lab" is available in the list
+    if "Python Programming Lab" in subjects:
+        print("\n'Python Programming Lab' is available in the list.")
+    else:
+        print("\n'Python Programming Lab' is not available in the list.")
+    
+    # Demonstrate the working of append() function
+    subjects.append("Machine Learning")
+    print("\nList after appending 'Machine Learning':")
+    print(subjects)
+    
+    # Demonstrate the working of insert() function
+    subjects.insert(2, "Computer Networks")
+    print("\nList after inserting 'Computer Networks' at index 2:")
+    print(subjects)
+    
+    # Demonstrate the working of remove() function
+    subjects.remove("Database Lab")
+    print("\nList after removing 'Database Lab':")
+    print(subjects)
+    
+    # Demonstrate the working of pop() function
+    popped_subject = subjects.pop()
+    print(f"\nList after popping the last element ('{popped_subject}'):")
+    print(subjects)
+
+if __name__ == "__main__":
+    main()
+
