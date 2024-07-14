@@ -215,3 +215,43 @@ if __name__ == "__main__":
     main()
 
 
+..
+
+def find_max_and_min(arr):
+    """Find the maximum and minimum numbers in an array."""
+    max_num = max(arr)
+    min_num = min(arr)
+    return max_num, min_num
+
+def find_second_largest(arr):
+    """Find the second largest number in an array without sorting."""
+    first = second = float('-inf')
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num != first:
+            second = num
+    return second
+
+def main():
+    # Reading array input from the user
+    arr = list(map(int, input("Enter the numbers separated by space: ").split()))
+    
+    # Finding and displaying the maximum and minimum number in the array
+    max_num, min_num = find_max_and_min(arr)
+    print(f"Maximum number: {max_num}")
+    print(f"Minimum number: {min_num}")
+
+    # Finding and displaying the second largest number in the array
+    second_largest = find_second_largest(arr)
+    if second_largest == float('-inf'):
+        print("The array does not have a second largest number.")
+    else:
+        print(f"Second largest number: {second_largest}")
+
+if __name__ == "__main__":
+    main()
+
+
+
