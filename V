@@ -63,3 +63,139 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
 
+
+//7
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def push(self, item):
+        self.items.append(item)
+        print(f"Pushed element {item} onto the stack.")
+
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("Pop from empty stack.")
+        return self.items.pop()
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("Peek from empty stack.")
+        return self.items[-1]
+
+    def display(self):
+        print("Stack elements:", self.items)
+
+
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def enqueue(self, item):
+        self.items.append(item)
+        print(f"Enqueued element {item} into the queue.")
+
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("Dequeue from empty queue.")
+        return self.items.pop(0)
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("Peek from empty queue.")
+        return self.items[0]
+
+    def display(self):
+        print("Queue elements:", self.items)
+
+
+# Testing the classes
+try:
+    # Stack operations
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.display()
+    print("Peek:", stack.peek())
+    print("Popped:", stack.pop())
+    stack.display()
+
+    # Queue operations
+    queue = Queue()
+    queue.enqueue(10)
+    queue.enqueue(20)
+    queue.display()
+    print("Peek:", queue.peek())
+    print("Dequeued:", queue.dequeue())
+    queue.display()
+
+    # Handling errors
+    stack.pop()  # Trying to pop from an empty stack
+    queue.dequeue()  # Trying to dequeue from an empty queue
+
+except IndexError as e:
+    print(f"Error: {e}")
+..
+import numpy as np
+
+def display_operations_2d_array(arr):
+    # Display original 2D array
+    print("Original 2D Array:")
+    print(arr)
+
+    # Display array elements in reverse order
+    print("\nArray elements in reverse order:")
+    print(arr[::-1])
+
+    # Display principal diagonal elements
+    print("\nPrincipal diagonal elements:")
+    print(np.diagonal(arr))
+
+    # Sort the array in ascending order along each row
+    print("\nSorted array in ascending order:")
+    sorted_asc = np.sort(arr, axis=None)
+    print(sorted_asc)
+
+    # Sort the array in descending order along each row
+    print("\nSorted array in descending order:")
+    sorted_desc = np.sort(arr, axis=None)[::-1]
+    print(sorted_desc)
+
+# Example usage:
+if __name__ == "__main__":
+    # Creating a sample 2D array
+    array_2d = np.array([[1, 2, 3],
+                         [4, 5, 6],
+                         [7, 8, 9]])
+
+    # Performing operations on the array
+    display_operations_2d_array(array_2d)
+//8
+
+import random
+
+# Function to generate 20 random numbers
+def generate_random_numbers(n):
+    return [random.randint(1, 100) for _ in range(n)]
+
+# Function to filter odd numbers of length 2 and 4
+def filter_odd_numbers(numbers):
+    return [num for num in numbers if num % 2 != 0 and len(str(num)) in [2, 4]]
+
+# Generate 20 random numbers
+random_numbers = generate_random_numbers(20)
+print("Generated Random Numbers:")
+print(random_numbers)
+
+# Filter odd numbers of length 2 and 4
+filtered_odd_numbers = filter_odd_numbers(random_numbers)
+print("\nFiltered Odd Numbers of Length 2 and 4:")
+print(filtered_odd_numbers)
+
+
