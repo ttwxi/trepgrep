@@ -35,5 +35,24 @@ def main():
     except ValueError:
         print("Invalid input! Please enter numeric values.")
 
+..
+def main():
+    # Sample list of strings
+    strings = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+
+    # Creating a list of tuples with the string and its length
+    tuples_list = [(s, len(s)) for s in strings]
+
+    # Sorting the list of tuples based on the length of the string
+    sorted_tuples_list = sorted(tuples_list, key=lambda x: x[1])
+
+    # Printing the sorted list of tuples
+    print("Sorted list of tuples based on the length of the string:")
+    for item in sorted_tuples_list:
+        print(item)
+
+if __name__ == "__main__":
+    main()
+
 if __name__ == "__main__":
     main()
