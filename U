@@ -253,5 +253,107 @@ def main():
 if __name__ == "__main__":
     main()
 
+//4
+def print_items(dictionary):
+    """Print all items in the dictionary."""
+    print("All items in the dictionary:")
+    for key, value in dictionary.items():
+        print(f"{key}: {value}")
+
+def print_keys(dictionary):
+    """Print all keys in the dictionary."""
+    print("All keys in the dictionary:")
+    for key in dictionary.keys():
+        print(key)
+
+def print_values(dictionary):
+    """Print all values in the dictionary."""
+    print("All values in the dictionary:")
+    for value in dictionary.values():
+        print(value)
+
+def get_password(dictionary, user):
+    """Get the password of a user."""
+    password = dictionary.get(user)
+    if password:
+        print(f"The password of '{user}' is: {password}")
+    else:
+        print(f"User '{user}' not found in the dictionary.")
+
+def change_password(dictionary, user, new_password):
+    """Change the password of a particular user."""
+    if user in dictionary:
+        dictionary[user] = new_password
+        print(f"Password of '{user}' has been changed to: {new_password}")
+    else:
+        print(f"User '{user}' not found in the dictionary.")
+
+def main():
+    # Initialize the dictionary
+    passwd = {'rahul': 'genius', 'kumar': 'smart', 'ankita': 'intelligent'}
+
+    # Print all items in the dictionary
+    print_items(passwd)
+    
+    # Print all keys in the dictionary
+    print_keys(passwd)
+    
+    # Print all values in the dictionary
+    print_values(passwd)
+    
+    # Get the password of a user
+    user_to_search = 'rahul'
+    get_password(passwd, user_to_search)
+    
+    # Change the password of a particular user
+    user_to_change = 'ankita'
+    new_password = 'brilliant'
+    change_password(passwd, user_to_change, new_password)
+
+    # Print all items in the dictionary again to see the changes
+    print_items(passwd)
+
+if __name__ == "__main__":
+    main()
+
+..
+
+
+import re
+
+def count_vowels_consonants_digits(text):
+    # Define regular expressions for vowels, consonants, and digits
+    vowels_pattern = re.compile(r'[aeiouAEIOU]')
+    consonants_pattern = re.compile(r'[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]')
+    digits_pattern = re.compile(r'\d')
+    
+    # Find all matches for each pattern
+    vowels = vowels_pattern.findall(text)
+    consonants = consonants_pattern.findall(text)
+    digits = digits_pattern.findall(text)
+    
+    # Count the occurrences
+    vowels_count = len(vowels)
+    consonants_count = len(consonants)
+    digits_count = len(digits)
+    
+    return vowels_count, consonants_count, digits_count
+
+def main():
+    # Read text from the user
+    text = input("Enter the text: ")
+    
+    # Count the occurrences of vowels, consonants, and digits
+    vowels_count, consonants_count, digits_count = count_vowels_consonants_digits(text)
+    
+    # Display the results
+    print(f"Number of vowels: {vowels_count}")
+    print(f"Number of consonants: {consonants_count}")
+    print(f"Number of digits: {digits_count}")
+
+if __name__ == "__main__":
+    main()
+
+
 
 
