@@ -355,5 +355,34 @@ if __name__ == "__main__":
     main()
 
 
+//5
+def main():
+    # Create a tuple
+    my_tuple = ('apple', 'banana', 'cherry', 'date', 'elderberry')
+
+    # Adding an item to a tuple (not directly possible, tuples are immutable)
+    # But you can concatenate tuples to create a new tuple
+    new_tuple = my_tuple + ('fig',)
+    print("Tuple after adding 'fig':", new_tuple)
+
+    # Display the length of the tuple
+    print("Length of the tuple:", len(new_tuple))
+
+    # Checking for an item in the tuple
+    item_to_check = 'banana'
+    if item_to_check in new_tuple:
+        print(f"'{item_to_check}' is present in the tuple.")
+    else:
+        print(f"'{item_to_check}' is not present in the tuple.")
+
+    # Accessing an item in the tuple by index
+    index = 2
+    if 0 <= index < len(new_tuple):
+        print(f"Item at index {index}: {new_tuple[index]}")
+    else:
+        print(f"Index {index} is out of range for the tuple.")
+
+if __name__ == "__main__":
+    main()
 
 
